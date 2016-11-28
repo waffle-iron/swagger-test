@@ -1,0 +1,137 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "PetStore on Heroku",
+        "description": "**This example has a working backend hosted in Heroku**\n\nYou can try all HTTP operation described in this Swagger spec.\n\nFind source code of this API [here](https://github.com/mohsen1/petstore-api)\n"
+    },
+    "host": "petstore-api.herokuapp.com",
+    "basePath": "/pet",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "text/xml"
+    ],
+    "produces": [
+        "application/json",
+        "text/html"
+    ],
+    "tags": [
+        {
+            "name": "Pets",
+            "description": "Pet controller"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "number of pets to return",
+                        "type": "integer",
+                        "default": 11,
+                        "minimum": 11,
+                        "maximum": 10000
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "<p>Retruns a list of all available pets</p>",
+                        "schema": {
+                            "title": "Pets",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Pet"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "pet",
+                        "in": "body",
+                        "description": "The pet JSON you want to post",
+                        "schema": {
+                            "$ref": "#/definitions/Pet"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "<p>Creates a new pet</p>"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "pet",
+                        "in": "body",
+                        "description": "The pet JSON you want to post",
+                        "schema": {
+                            "$ref": "#/definitions/Pet"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "<p>Updates the pet</p>"
+                    }
+                }
+            }
+        },
+        "/{petId}": {
+            "get": {
+                "tags": [
+                    "Pets"
+                ],
+                "parameters": [
+                    {
+                        "name": "petId",
+                        "in": "path",
+                        "type": "string",
+                        "description": "ID of the pet",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "<p>Sends the pet with pet Id</p>"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Pet": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "birthday": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "swagger-test",
+  "version": "1.0.0",
+  "description": "Mocha Test synchronisation tool from Swagger json",
+  "main": "synch.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eat-sleep-code-repeat/swagger-test.git"
+  },
+  "author": "Philip Beadle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eat-sleep-code-repeat/swagger-test/issues"
+  },
+  "homepage": "https://github.com/eat-sleep-code-repeat/swagger-test#readme",
+  "dependencies": {
+    "konfig": "^0.2.1",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0",
+    "xmldoc": "^0.5.1"
+  }
+}
